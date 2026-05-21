@@ -3,6 +3,7 @@
 Ce dépôt contient le projet d’intégration réalisé dans le cadre du Bachelor en Ingénierie des Médias à la HEIG-VD par le groupe **Sixième Sens**.
 
 Le groupe est composé de :
+
 - Sarah Furrer — Responsable gestion de projet & Scrum Master
 - Marike Platen — Responsable UX & Product Owner
 - Sacha Loskov — Responsable UI
@@ -24,6 +25,7 @@ Ce projet consiste à concevoir et développer une plateforme web dédiée au **
 ## Organisation du projet
 
 Le projet comprend :
+
 - Une analyse des attentes et des problématiques du mandant
 - Une page vitrine présentant le don du sang et le Trophée de la générosité
 - Une page co-brandée permettant aux employé·e·s de s’informer sur les critères d’éligibilité au don du sang et d’accéder au lien d’inscription à une collecte
@@ -34,6 +36,7 @@ Le projet comprend :
 - Une présentation finale de 15 minutes
 
 Le projet s’appuie sur les outils et technologies suivants :
+
 - [Jira](https://sixieme-sens.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog) pour la gestion de projet et des sprints
 - Figma pour l’idéation, la création des user flows, des wireframes et des maquettes
 - MySQL pour la base de données
@@ -50,8 +53,8 @@ Pour chaque modification du code sur le dépôt GitHub, les étapes suivantes do
 3. Développer la fonctionnalité ou le correctif
 4. Push la branche sur le dépôt distant
 5. Demander une review au responsable concerné :
-   - Steve Benjamin pour le front-end
-   - Benoît Jaques pour le back-end
+    - Steve Benjamin pour le front-end
+    - Benoît Jaques pour le back-end
 6. Merger la branche une fois la review validée, puis supprimer la branche
 
 **Ne jamais modifier directement la branche `main`.**
@@ -89,7 +92,7 @@ Pour développer et tester le mini-projet en local, voici les étapes à suivre 
 
     ```bash
     npm install
-    
+
     npm run build
 
     composer install
@@ -119,7 +122,7 @@ Pour développer et tester le mini-projet en local, voici les étapes à suivre 
     php artisan migrate
     ```
 
-*S'il est nécessaire de réinitialiser la base de données durant le développement*
+_S'il est nécessaire de réinitialiser la base de données durant le développement_
 
     ```bash
     php artisan migrate:reset --seed
@@ -135,5 +138,23 @@ L'application sera accessible à l'adresse <http://localhost:8000>.
 
 ### Déploiement serveur de production
 
-> TODO
-Comment configurer la db mysql sur le serveur de production
+À chaque Merged pull request, le serveur Infomaniak se met à jour.
+
+    ```bash
+    cd ~/sites/sixieme_sens
+
+    git pull origin main
+
+    composer install --no-dev --optimize-autoloader
+
+    php artisan migrate:fresh --seed --force
+
+    php artisan config:cache
+
+    php artisan route:cache
+
+    php artisan view:cache
+    ```
+
+> [!CAUTION]
+> Actuellement, la DB est totalement effacée, recréé et seedée à chaques fois. Au moment du déploiement réel, corriger cette fonctionnalité
