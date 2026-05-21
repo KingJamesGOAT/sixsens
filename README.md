@@ -56,31 +56,84 @@ Pour chaque modification du code sur le dépôt GitHub, les étapes suivantes do
 
 **Ne jamais modifier directement la branche `main`.**
 
-### Installation
+## Pré-requis
+
+Afin de lancer ce projet, une stack compatible avec Laravel, est requise.
+
+Voici les pré-requis nécessaires :
+
+- PHP >= 8.0.
+- Composer.
+- Node.js et npm.
+- Une base de données (MySQL, PostgreSQL, SQLite, etc.).
+- Un serveur web (Apache, Nginx, etc.).
+
+[Laravel Herd](https://helm.sh/docs/charts/laravel/) est recommandé pour une installation facile de Laravel et de ses dépendances.
+
+> Dans l'environnement de développement, le sgdb sera MySQL
+> Il est cependant possible (et recommandé) de développer localement en SQLite
+
+### Développement local
+
+Pour développer et tester le mini-projet en local, voici les étapes à suivre :
+
+1. Cloner ce dépôt sur votre machine locale :
+
+    ```bash
+    git clone git@github.com:BenbounBigHydra/sixieme_sens.git
+
+    cd sixieme_sens
+    ```
+
+2. Installer les dépendances avec npm et Composer :
+
+    ```bash
+    npm install
+    
+    npm run build
+
+    composer install
+    ```
+
+3. Installer les dépendances Vue.js
+
+> Todo
+
+4. Copier le fichier `.env.example` en `.env`.
+5. Modifier les variables d'environnement si nécessaire (optionnel).
+6. Générer la clé d'application Laravel :
+
+    ```bash
+    php artisan key:generate
+    ```
+
+7. Créer le lien symbolique pour les fichiers téléversés :
+
+    ```bash
+    php artisan storage:link
+    ```
+
+8. Créer la base de donnée, exécuter les migrations et seed :
+
+    ```bash
+    php artisan migrate
+    ```
+
+*S'il est nécessaire de réinitialiser la base de données durant le développement*
+
+    ```bash
+    php artisan migrate:reset --seed
+    ```
+
+9. Démarrer le serveur de développement Laravel :
+
+    ```bash
+    composer run dev
+    ```
+
+L'application sera accessible à l'adresse <http://localhost:8000>.
+
+### Déploiement serveur de production
 
 > TODO
-1. Cloner le dépôt
-2. Installer les dépendances du back-end
-3. Installer les dépendances du front-end
-4. Copier le fichier d’environnement
-5. Configurer la base de données
-6. Lancer les migrations et les seeders
-7. Démarrer le serveur local
-8. Démarrer l’application front-end
-
-### Variables d’environnement
-
-> TODO
-- `.env` pour Laravel
-- Variables liées à la base de données
-- Variables liées à l’URL locale
-- Variables spécifiques au déploiement si nécessaire
-
-### Commandes utiles
-
-> TODO
-- Lancer le projet en local
-- Compiler les assets
-- Exécuter les migrations
-- Exécuter les seeders
-- Lancer les tests
+Comment configurer la db mysql sur le serveur de production
