@@ -100,9 +100,7 @@ Pour développer et tester le mini-projet en local, voici les étapes à suivre 
 
 3. Installer les dépendances Vue.js
 
-```bash
-npm install vue @vitejs/plugin-vue
-```
+> Aucun installation nécessaire pour le moment
 
 4. Copier le fichier `.env.example` en `.env`.
 5. Modifier les variables d'environnement si nécessaire (optionnel).
