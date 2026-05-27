@@ -11,9 +11,9 @@ class Company extends Model
         'color',
     ];
 
-    // Lien vers les collections
-    public function collections()
+    // Une company a plusieurs collectes
+    public function collectes()
     {
-        return $this->hasMany(Collection::class, 'id_company');
+        return $this->hasMany(Collection::class);
     }
 }
