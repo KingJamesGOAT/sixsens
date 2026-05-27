@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('collections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_company')
-                ->constrained('companies')
+            $table->foreignId('company_id')
+                ->constrained()
                 ->onDelete('cascade');
             $table->dateTime('start');
             $table->dateTime('end');
