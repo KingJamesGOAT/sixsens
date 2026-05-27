@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\VitrinController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Site vitrine
+Route::get('/', [VitrinController::class, 'index']);
+Route::get('/{page}', [VitrinController::class, 'show']);
