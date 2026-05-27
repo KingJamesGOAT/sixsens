@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         // ─── Companies ──────────────────────────────────────
         $companies = [
-            ['name' => 'EPFL',        'color' => "000000"],
+            ['name' => 'EPFL', 'color' => "000000"],
             ['name' => 'Heig-VD', 'color' => "ffffff"],
             ['name' => 'Unil',  'color' => "666666"],
         ];

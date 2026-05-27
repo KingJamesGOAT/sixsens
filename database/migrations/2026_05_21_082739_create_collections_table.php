@@ -19,6 +19,7 @@ return new class extends Migration
             $table->dateTime('start');
             $table->dateTime('end');
             $table->integer('nb_employee')->nullable();
+            $table->integer('nb_registered')->nullable();
             $table->integer('nb_blood_pouch')->nullable();
             $table->string('onedoc_link')->nullable();
             $table->timestamps();
