@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
 
         // ─── Companies ──────────────────────────────────────
         $companies = [
-            ['name' => 'EPFL',        'color' => "000000", 'nb_employee' => 120],
-            ['name' => 'Heig-VD', 'color' => "ffffff", 'nb_employee' => 85],
-            ['name' => 'Unil',  'color' => "666666", 'nb_employee' => 60],
+            ['name' => 'EPFL',        'color' => "000000"],
+            ['name' => 'Heig-VD', 'color' => "ffffff"],
+            ['name' => 'Unil',  'color' => "666666"],
         ];
 
         foreach ($companies as $company) {
@@ -38,7 +38,7 @@ class DatabaseSeeder extends Seeder
             // ─── 2 collectes passées + 1 future par company ─
             DB::table('collections')->insert([
                 [
-                    'id_company'     => $companyId,
+                    'company_id'     => $companyId,
                     'start'          => Carbon::now()->subMonths(3)->setTime(8, 0),
                     'end'            => Carbon::now()->subMonths(3)->setTime(16, 0),
                     'nb_employee'    => 1000,
@@ -49,7 +49,7 @@ class DatabaseSeeder extends Seeder
                     'updated_at'     => Carbon::now(),
                 ],
                 [
-                    'id_company'     => $companyId,
+                    'company_id'     => $companyId,
                     'start'          => Carbon::now()->subMonths(1)->setTime(9, 0),
                     'end'            => Carbon::now()->subMonths(1)->setTime(17, 0),
                     'nb_employee'    => 1100,
@@ -60,7 +60,7 @@ class DatabaseSeeder extends Seeder
                     'updated_at'     => Carbon::now(),
                 ],
                 [
-                    'id_company'     => $companyId,
+                    'company_id'     => $companyId,
                     'start'          => Carbon::now()->addMonths(2)->setTime(8, 0),
                     'end'            => Carbon::now()->addMonths(2)->setTime(16, 0),
                     'nb_employee'    => 1200,
