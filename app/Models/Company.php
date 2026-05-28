@@ -12,7 +12,7 @@ class Company extends Model
     ];
 
     // Une company a plusieurs collectes
-    public function collectes()
+    public function collections()
     {
         return $this->hasMany(Collection::class);
     }

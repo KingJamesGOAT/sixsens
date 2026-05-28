@@ -24,6 +24,6 @@ class Collection extends Model
     // Une collecte appartient à une company
     public function company()
     {
-        return $this->belongsTo(Company::class, 'id_company');
+        return $this->belongsTo(Company::class);
     }
 }
